@@ -144,7 +144,7 @@ function App() {
               <p>Strength: {member.strength}</p>
               <p>Agility: {member.agility}</p>
             {/*using anonymous function */}
-              <button onClick={() => handleRemoveFighter(member)}>Remove</button>
+              <button onClick={()=> handleRemoveFighter(member)}>Remove</button>
             </li> ))}
         </ul>
       )}
