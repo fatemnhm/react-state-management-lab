@@ -85,15 +85,15 @@ function App() {
 
   const handleAddFighter = (fighter) => {
 
-    if (money >= fighter.price) {
+    if (fighter.price <= money) {
      //reset team
       setTeam([...team, fighter]);
       //money
-      setMoney(money - fighter.price);
+      setMoney( money - fighter.price );
       //strength
-      setTotalStrength(totalStrength + fighter.strength);
+      setTotalStrength( totalStrength + fighter.strength );
       //agility
-      setTotalAgility(totalAgility + fighter.agility);
+      setTotalAgility( totalAgility + fighter.agility );
     } else {
       console.log("Not enough money");
     }
@@ -112,34 +112,18 @@ function App() {
 
   return (
     <div>
-  
+      <h1>Zombie Fighter</h1>
       <p>Money: {money}</p>
       <p>Team Strength: {totalStrength}</p>
       <p>Team Agility: {totalAgility}</p>
-
-      <h2>Fighters</h2>
-      <ul>
-        {zombieFighters.map((zombieFighter, index) => (
-          <li key={index}>
-            <img src={zombieFighter.img} alt={zombieFighter.name} />
-            <p>Name: {zombieFighter.name}</p>
-            <p>Price: {zombieFighter.price}</p>
-            <p>Strength: {zombieFighter.strength}</p>
-            <p>Agility: {zombieFighter.agility}</p>
-             {/*using anonymous function */}
-            <button onClick={()=>handleAddFighter(zombieFighter)}>Add Fighter</button>
-          </li>
-        ))}
-      </ul>
-
-      <h2>Team Fighters</h2>
+      <h2>Team </h2>
      {/*  conditional rendering to check if empty else print team members */}
       {team.length === 0 ? ( <p>Pick some team members!</p> ) : (
         <ul>
           {team.map((member, index) => (
             <li key={index}>
               <img src={member.img} alt={member.name} />
-              <p>Name: {member.name}</p>
+              <p>{member.name}</p>
               <p>Price: {member.price}</p>
               <p>Strength: {member.strength}</p>
               <p>Agility: {member.agility}</p>
@@ -148,6 +132,22 @@ function App() {
             </li> ))}
         </ul>
       )}
+      <h2>Fighters</h2>
+      <ul>
+        {zombieFighters.map((zombieFighter, index) => (
+          <li key={index}>
+            <img src={zombieFighter.img} alt={zombieFighter.name} />
+            <p>{zombieFighter.name}</p>
+            <p>Price: {zombieFighter.price}</p>
+            <p>Strength: {zombieFighter.strength}</p>
+            <p>Agility: {zombieFighter.agility}</p>
+             {/*using anonymous function */}
+            <button onClick={()=>handleAddFighter(zombieFighter)}>Add</button>
+          </li>
+        ))}
+      </ul>
+
+     
     </div>
   );
 }
