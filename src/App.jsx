@@ -114,10 +114,10 @@ function App() {
     <div>
   
       <p>Money: {money}</p>
-      <p>Total Team Strength: {totalStrength}</p>
-      <p>Total Team Agility: {totalAgility}</p>
+      <p>Team Strength: {totalStrength}</p>
+      <p>Team Agility: {totalAgility}</p>
 
-      <h2>Available Fighters</h2>
+      <h2>Fighters</h2>
       <ul>
         {zombieFighters.map((zombieFighter, index) => (
           <li key={index}>
@@ -132,7 +132,7 @@ function App() {
         ))}
       </ul>
 
-      <h2>Your Team</h2>
+      <h2>Team Fighters</h2>
      {/*  conditional rendering to check if empty else print team members */}
       {team.length === 0 ? ( <p>Pick some team members!</p> ) : (
         <ul>
