@@ -113,10 +113,10 @@ function App() {
   return (
     <div>
       <h1>Zombie Fighter</h1>
-      <p>Money: {money}</p>
-      <p>Team Strength: {totalStrength}</p>
-      <p>Team Agility: {totalAgility}</p>
-      <h2>Team </h2>
+      <h2>Money: {money}</h2>
+      <h2>Team Strength: {totalStrength}</h2>
+      <h2>Team Agility: {totalAgility}</h2>
+      <h2>Team</h2>
      {/*  conditional rendering to check if empty else print team members */}
       {team.length === 0 ? ( <p>Pick some team members!</p> ) : (
         <ul>
